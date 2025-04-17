@@ -1,0 +1,69 @@
+const translations = {
+    en: {
+        title: "🆘 ICE - Malaysia Emergency",
+        subtitle: "One-tap emergency contacts:",
+        police: "Police (0199877615)",
+        hospital: "Ambulance (999/112)",
+        fire: "Firefighters (994)",
+        voiceBtn: "🎤 Voice Command",
+        note: "⚠️ Malaysia emergency: Police (0199877615) | Ambulance (999/112) | Fire (994)"
+    },
+    ms: { // Bahasa Melayu
+        title: "🆘 ICE - Kecemasan Malaysia",
+        subtitle: "Hubungan kecemasan satu tekan:",
+        police: "Polis (0199877615)",
+        hospital: "Ambulans (999/112)",
+        fire: "Bomba (994)",
+        voiceBtn: "🎤 Arahan Suara",
+        note: "⚠️ Nombor kecemasan: Polis (0199877615) | Ambulans (999/112) | Bomba (994)"
+    },
+    zh: { // Mandarin
+        title: "🆘 ICE - 马来西亚紧急救援",
+        subtitle: "一键紧急联系:",
+        police: "警察 (0199877615)",
+        hospital: "救护车 (999/112)",
+        fire: "消防队 (994)",
+        voiceBtn: "🎤 语音指令",
+        note: "⚠️ 紧急号码: 警察 (0199877615) | 救护车 (999/112) | 消防 (994)"
+    }
+};
+
+// Set default language to Malay
+setLanguage('ms');
+
+// Malaysia emergency numbers (hardcoded)
+const emergencyNumbers = {
+    police: "0199877615",
+    ambulance: "999", // or 112
+    fire: "994"
+};
+
+// Apply numbers to buttons
+document.getElementById("police-btn").href = `tel:${emergencyNumbers.police}`;
+document.getElementById("hospital-btn").href = `tel:${emergencyNumbers.ambulance}`;
+document.getElementById("fire-btn").href = `tel:${emergencyNumbers.fire}`;
+
+// Language selector
+document.getElementById("language-selector").innerHTML = `
+    <option value="ms">Bahasa Melayu</option>
+    <option value="en">English</option>
+    <option value="zh">中文</option>
+`;
+
+// Voice Command (Supports all 3 languages)
+recognition.onresult = (event) => {
+    const command = event.results[0][0].transcript.toLowerCase();
+    
+    // Police commands
+    if (command.includes("police") || command.includes("polis") || command.includes("警察")) {
+        window.location.href = `tel:${emergencyNumbers.police}`;
+    } 
+    // Ambulance commands
+    else if (command.includes("hospital") || command.includes("ambulans") || command.includes("救护车")) {
+        window.location.href = `tel:${emergencyNumbers.ambulance}`;
+    } 
+    // Fire commands
+    else if (command.includes("fire") || command.includes("bomba") || command.includes("消防")) {
+        window.location.href = `tel:${emergencyNumbers.fire}`;
+    }
+};

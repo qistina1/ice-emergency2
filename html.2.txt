@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🆘 ICE - Malaysia Emergency</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Open Graph Meta Tags (for social media sharing) -->
+    <meta property="og:title" content="🆘 ICE - Malaysia Emergency Services">
+    <meta property="og:description" content="One-tap access to Police (0199877615), Ambulance (999/112), Firefighters (994)">
+    <meta property="og:image" content="https://example.com/ice-emergency-preview.jpg">
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">🆘 ICE - Kecemasan Malaysia</h1>
+        <p id="subtitle">Hubungan kecemasan satu tekan:</p>
+        
+        <div class="buttons">
+            <a href="tel:0199877615" class="btn police" id="police-btn">🚔 <span id="police-text">Polis (0199877615)</span></a>
+            <a href="tel:999" class="btn hospital" id="hospital-btn">🏥 <span id="hospital-text">Ambulans (999/112)</span></a>
+            <a href="tel:994" class="btn fire" id="fire-btn">🚒 <span id="fire-text">Bomba (994)</span></a>
+        </div>
+
+        <!-- Voice Assistant Button -->
+        <button id="voice-btn" class="btn voice">🎤 Arahan Suara</button>
+
+        <!-- Language Selector -->
+        <select id="language-selector" class="language-selector">
+            <option value="ms">Bahasa Melayu</option>
+            <option value="en">English</option>
+            <option value="zh">中文 (Mandarin)</option>
+        </select>
+
+        <p class="note" id="note">⚠️ Nombor kecemasan: Polis (0199877615) | Ambulans (999/112) | Bomba (994)</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
